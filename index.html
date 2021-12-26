@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>War</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="info_bar">
+        <button onclick="reset()" id="reset_btn">Reset</button>
+        <p id="player_points">Your Points: 0</p>
+        <p id="cp_points">Opponent Points: 0</p>
+        <p id="remaining">Cards Remaining: 52</p>
+    </div>
+    <div id="page">
+        <div id=card_container>
+            <div id="cards">
+                <div class="card_border"></div>
+                <div class="card_border"></div>
+            </div>
+            <div id="deal_btn_container">
+                <button onclick="deal()" id="deal_btn">Deal</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
