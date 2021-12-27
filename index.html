@@ -9,21 +9,33 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <div id="info_bar">
-        <button onclick="reset()" id="reset_btn">Reset</button>
-        <p id="player_points">Your Points: 0</p>
-        <p id="cp_points">Opponent Points: 0</p>
-        <p id="remaining">Cards Remaining: 52</p>
-    </div>
-    <div id="page">
-        <div id=card_container>
-            <div id="cards">
-                <div class="card_border"></div>
-                <div class="card_border"></div>
+    <div id="page" class="df">
+        <div id="container" class="df">
+
+            <div id="score_container">
+                <div id="score_box" class="br">
+                    <h1>Score:</h1>
+                    <div id="score" class="df">
+                        <p id="red_points">0</p>
+                        <p id="blue_points">0</p>
+                    </div>
+                    <p id="remaining" class="info">Cards Remaining: 52</p>
+                </div>
+                <div class="btn_container">
+                    <button onclick="reset()" id="reset_btn">Reset</button>
+                </div>
             </div>
-            <div id="deal_btn_container">
-                <button onclick="deal()" id="deal_btn">Deal</button>
+
+            <div id=card_container class="br">
+                <div id="cards" class="df">
+                    <div class="card_border br"></div>
+                    <div class="card_border br"></div>
+                </div>
+                <div class="btn_container">
+                    <button onclick="deal()" id="deal_btn">Deal</button>
+                </div>
             </div>
+
         </div>
     </div>
 </body>

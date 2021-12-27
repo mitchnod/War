@@ -1,19 +1,19 @@
-var player_points = 0;
-var cp_points = 0;
+var red_points = 0;
+var blue_points = 0;
 
 async function reset(){
     var response = await fetch("https://deckofcardsapi.com/api/deck/d69pp227jhwv/shuffle/?deck_count=1");
     var card_data = await response.json();
 
     //reset stats
-    player_points = 0;
-    cp_points = 0;
+    red_points = 0;
+    blue_points = 0;
     document.getElementById("remaining").innerText = "Cards Remaining: " + card_data.remaining;
-    document.getElementById("player_points").innerText = `Your Points: ${player_points}`
-    document.getElementById("cp_points").innerText = `Opponent Points: ${cp_points}`
+    document.getElementById("red_points").innerText = `${red_points}`
+    document.getElementById("blue_points").innerText = `${blue_points}`
     document.getElementById("cards").innerHTML = `
-    <div class="card_border"></div>
-    <div class="card_border"></div>
+    <div class="card_border br"></div>
+    <div class="card_border br"></div>
     `
 }
 
@@ -26,8 +26,8 @@ async function deal(){
 
     //displays card images
     document.getElementById("cards").innerHTML = `
-    <img src="${card_data.cards[0].image}">
-    <img src="${card_data.cards[1].image}">
+    <img id="red_card" class="br" src="${card_data.cards[0].image}">
+    <img id="blue_card" class="br" src="${card_data.cards[1].image}">
     `
 
     //gives value to face cards
@@ -47,27 +47,27 @@ async function deal(){
     }
 
     //tracks score
-    if(parseInt(card_data.cards[1].value) > parseInt(card_data.cards[0].value)){
-        player_points += 1;
+    if(parseInt(card_data.cards[0].value) > parseInt(card_data.cards[1].value)){
+        red_points += 1;
     }
-    else if(parseInt(card_data.cards[0].value) > parseInt(card_data.cards[1].value)){
-        cp_points += 1;
+    else if(parseInt(card_data.cards[0].value) < parseInt(card_data.cards[1].value)){
+        blue_points += 1;
     }
 
     //displays score
-    document.getElementById("player_points").innerText = `Your Points: ${player_points}`
-    document.getElementById("cp_points").innerText = `Opponent Points: ${cp_points}`
+    document.getElementById("red_points").innerText = `${red_points}`
+    document.getElementById("blue_points").innerText = `${blue_points}`
 
     //end game prompt
-    if (card_data.remaining == 0 && cp_points > player_points){
-        setTimeout(function(){alert("You Lost!");},500);
+    if (card_data.remaining == 0 && blue_points > red_points){
+        setTimeout(function(){alert("Blue Wins!");},500);
         setTimeout(function(){reset();},1000);
     }
-    else if(card_data.remaining == 0 && player_points > cp_points){
-        setTimeout(function(){alert("You Won!");},500);
+    else if(card_data.remaining == 0 && red_points > blue_points){
+        setTimeout(function(){alert("Red Wins!");},500);
         setTimeout(function(){reset();},1000);
     }
-    else if(card_data.remaining == 0 && player_points == cp_points){
+    else if(card_data.remaining == 0 && red_points == blue_points){
         setTimeout(function(){alert("Tie!");},500);
         setTimeout(function(){reset();},1000);
     }

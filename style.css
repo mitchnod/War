@@ -3,33 +3,52 @@
     margin: 0;
 }
 
+.df{
+    display: flex;
+}
+
+.br{
+    border-radius: 15px;
+}
+
 #page{
     background-color: rgb(74,133,63);
-    padding: 40px 0;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+#container{
+    width: 60%;
+    margin: 0 auto;
 }
 
 #card_container{
-    margin: 0 auto;
-    width: 40%;
+    flex: 3;
     background-color: rgb(69, 122, 58);
     padding: 20px;
-    border-radius: 15px;
+    margin-left: 20px;
+}
+
+#score_container{
+    flex: 1;
 }
 
 button{
     border: 2px solid black;
     font-weight: bold;
-    margin: 20px 0;
     border-radius: 10px;
 }
 
 #reset_btn{
     background-color: red;
     padding: 5px 10px;
+    margin: 10px;
 }
 
 #deal_btn{
-    width: 200px;
+    width: 40%;
     font-size: 30px;
     padding: 10px;
 }
@@ -47,7 +66,6 @@ button:hover{
 }
 
 #cards{
-    display: flex;
     justify-content: space-between;
 }
 
@@ -57,23 +75,41 @@ img, .card_border{
     width: 226px;
 }
 
-#info_bar{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: rgb(69, 122, 58);
-}
-
-p{
-    font-size: 30px;
+.info{
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 .card_border{
     background-color: rgb(63, 112, 53);
-    border-radius: 15px;
 }
 
-#deal_btn_container{
-    display: flex;
-    justify-content: center;
+.btn_container, h1, .info{
+    text-align: center;
+}
+
+#red_card{
+    border: 3px solid red;
+}
+
+#blue_card{
+    border: 3px solid blue;
+}
+
+#red_points{
+    color: red;
+}
+
+#blue_points{
+    color: blue;
+}
+
+#score{
+    font-size: 30px;
+    justify-content: space-evenly;
+}
+
+#score_box{
+    background-color: rgb(69, 122, 58);
+    padding: 20px;
 }
