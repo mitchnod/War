@@ -2,7 +2,7 @@ var red_points = 0;
 var blue_points = 0;
 
 async function reset(){
-    var response = await fetch("https://deckofcardsapi.com/api/deck/d69pp227jhwv/shuffle/?deck_count=1");
+    var response = await fetch("https://deckofcardsapi.com/api/deck/14ig0imkhdue/shuffle/?deck_count=1");
     var card_data = await response.json();
 
     //reset stats
@@ -18,7 +18,7 @@ async function reset(){
 }
 
 async function deal(){
-    var response = await fetch("https://deckofcardsapi.com/api/deck/d69pp227jhwv/draw/?count=2");
+    var response = await fetch("https://deckofcardsapi.com/api/deck/14ig0imkhdue/draw/?count=2");
     var card_data = await response.json();
 
     //tracks cards remaining
